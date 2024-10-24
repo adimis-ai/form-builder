@@ -5,5 +5,5 @@ interface StaticLayoutProps {
 }
 
 export default async function Layout({ children }: StaticLayoutProps) {
-  return <Section>{children}</Section>
+  return <section className='h-screen'>{children}</section>
 }
