@@ -6,7 +6,8 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { toast } from 'sonner'
 import { js_beautify } from 'js-beautify'
 
-import { renderFormField } from '@/screens/render-form-field'
+import MarkdownEditor from '@uiw/react-markdown-editor'
+import { renderFormField } from '@/screens/form-preview/render-form-field'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Form, FormField, FormItem, FormControl } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
@@ -154,16 +155,17 @@ export const FormPreview: React.FC<FormPreviewProps> = ({ formFields }) => {
             )}
           />
         </TabsContent>
-        <TabsContent value="json">
+        <TabsContent value="json" className="h-full max-h-[70vh]">
           <If
             condition={formFields.length > 0}
             render={() => (
-              <pre className="p-4 text-sm bg-gray-100 rounded-lg h-full md:max-h-[70vh] overflow-auto">
-                {JSON.stringify(formFields, null, 2)}
-              </pre>
+              <MarkdownEditor.Markdown
+                source={'```json' + JSON.stringify(formFields, null, 2) + '```'}
+                className="h-full max-h-[60vh] overflow-auto"
+              />
             )}
             otherwise={() => (
-              <div className="h-[50vh] flex justify-center items-center">
+              <div className="h-full flex justify-center items-center">
                 <p>No form element selected yet.</p>
               </div>
             )}
@@ -203,9 +205,12 @@ export const FormPreview: React.FC<FormPreviewProps> = ({ formFields }) => {
                       style={style}
                     >
                       {tokens.map((line: any, i: number) => (
-                        <div {...getLineProps({ line, key: i })}>
+                        <div key={i} {...getLineProps({ line, key: i })}>
                           {line.map((token: any, key: any) => (
-                            <span {...getTokenProps({ token, key })} />
+                            <span
+                              key={key}
+                              {...getTokenProps({ token, key })}
+                            />
                           ))}
                         </div>
                       ))}

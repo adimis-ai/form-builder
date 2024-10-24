@@ -7,14 +7,14 @@ import { LuRows } from 'react-icons/lu'
 
 export type FormFieldOrGroup = FormFieldType | FormFieldType[]
 
-type FormFieldListProps = {
+type FormBuilderListProps = {
   formFields: FormFieldOrGroup[]
   setFormFields: React.Dispatch<React.SetStateAction<FormFieldOrGroup[]>>
   updateFormField: (path: number[], updates: Partial<FormFieldType>) => void
   openEditDialog: (field: FormFieldType) => void
 }
 
-export const FormFieldList: React.FC<FormFieldListProps> = ({
+export const FormBuilderList: React.FC<FormBuilderListProps> = ({
   formFields,
   setFormFields,
   updateFormField,

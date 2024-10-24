@@ -138,7 +138,7 @@ const FileSvgDraw = () => {
 export const renderFormField = (field: FormFieldType, form: any) => {
   const [checked, setChecked] = useState<boolean>(field.checked)
   const [value, setValue] = useState<any>(field.value)
-  const [files, setFiles] = useState<File[] | null>(null) // Initialize to null or use [] for an empty array
+  const [files, setFiles] = useState<File[] | null>(null)
   const [date, setDate] = useState<Date>()
 
   const dropZoneConfig = {

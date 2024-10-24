@@ -6,7 +6,7 @@ import { Link } from 'next-view-transitions'
 import { FormFieldType } from '@/types'
 import { Separator } from '@/components/ui/separator'
 import { FieldSelector } from '@/screens/field-selector'
-import { FormFieldList } from '@/screens/form-field-list'
+import { FormBuilderList } from '@/screens/form-builder/form-builder-list'
 import { FormPreview } from '@/screens/form-preview'
 import { EditFieldDialog } from '@/screens/edit-field-dialog'
 
@@ -119,7 +119,7 @@ export default function FormBuilder() {
   )
 
   return (
-    <section className="md:max-h-screen space-y-8">
+    <section className="md:max-h-screen space-y-8 bg-muted p-5">
       <div className="max-w-5xl mx-auto space-y-4">
         <h1 className="text-2xl font-semibold">Playground</h1>
         <p className="text-sm text-muted-foreground">
@@ -144,7 +144,7 @@ export default function FormBuilder() {
                 }
               />
               <div className="overflow-y-auto flex-1">
-                <FormFieldList
+                <FormBuilderList
                   formFields={formFields}
                   setFormFields={setFormFields}
                   updateFormField={updateFormField}
