@@ -119,20 +119,7 @@ export default function FormBuilder() {
   )
 
   return (
-    <section className="md:max-h-screen space-y-8 bg-muted p-5">
-      <div className="max-w-5xl mx-auto space-y-4">
-        <h1 className="text-2xl font-semibold">Playground</h1>
-        <p className="text-sm text-muted-foreground">
-          After successfully installing Shadcn, you can simply copy and paste
-          the generated form components to get started. Some components may have
-          additional dependencies, so make sure to review their documentation in
-          the{' '}
-          <Link href="/readme" className="underline text-slate-800">
-            README
-          </Link>{' '}
-          for further instructions.
-        </p>
-      </div>
+    <section className="h-full space-y-8 bg-muted p-5">
       <If
         condition={formFields.length > 0}
         render={() => (

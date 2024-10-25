@@ -23,7 +23,7 @@ export const Tab = ({ item, onClick, onRemove }: Props) => {
         transition: { duration: 0.15 },
       }}
       exit={{ opacity: 0, y: 20, transition: { duration: 0.3 } }}
-      whileDrag={{ backgroundColor: '#e3e3e3' }}
+      whileDrag={{ backgroundColor: 'var(hsl(--muted))' }}
       // className={
       //   isSelected
       //     ? 'selected flex justify-center items-center gap-1'
